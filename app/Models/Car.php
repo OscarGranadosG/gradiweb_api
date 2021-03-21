@@ -9,6 +9,18 @@ class Car extends Model
 {
     use HasFactory;
 
+    protected $primaryKey = 'id';
+
+    protected $table = 'cars';
+
+    protected $fillable = [
+        'license_plate',
+        'type',
+        'color',
+        'owner_id',
+        'brand_id'
+    ];
+
     //relacion 1-m
     public function owner()
     {
@@ -18,5 +30,11 @@ class Car extends Model
     public function brand()
     {
         return $this->belongsTo('App\Models\Brand');
+    }
+
+    //funciones crud
+    public static function saveDataCar($data)
+    {
+        return Car::create($data);
     }
 }

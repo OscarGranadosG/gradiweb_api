@@ -22,8 +22,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::post('owner', [OwnerController::class, 'saveOwner']);
+Route::get('getOwners', [OwnerController::class, 'getOwners']);
 
 Route::post('brand', [BrandController::class, 'saveBrand']);
+Route::get('getBrands', [BrandController::class, 'getBrands']);
 
 Route::post('car', [CarController::class, 'saveCar']);
 

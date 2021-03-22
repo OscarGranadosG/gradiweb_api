@@ -23,5 +23,10 @@ class BrandDataManagement
         return Brand::saveDataBrand($data);
     }
 
+    public function getDataBrands()
+    {
+        return Brand::getDataBrand()->get()->toArray();
+    }
+
     
 }

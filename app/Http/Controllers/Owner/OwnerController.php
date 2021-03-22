@@ -32,4 +32,18 @@ class OwnerController extends Controller
                 ->setStatusCode(JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
+
+    public function getOwners()
+    {
+        try {
+            return response()
+                ->json(['status' => 'Success',
+                    'results' => $this->management->getDataOwners()])
+                ->setStatusCode(JsonResponse::HTTP_OK);
+        } catch (\Exception $e) {
+            return response()
+                ->json(['error' => $e->getMessage()])
+                ->setStatusCode(JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
 }

@@ -30,6 +30,19 @@ class BrandController extends Controller
                 ->json(['error' => $e->getMessage()])
                 ->setStatusCode(JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
         }
+    }
 
+    public function getBrands()
+    {
+        try {
+            return response()
+                ->json(['status' => 'Success',
+                    'results' => $this->management->getDataBrands()])
+                ->setStatusCode(JsonResponse::HTTP_OK);
+        } catch (\Exception $e) {
+            return response()
+                ->json(['error' => $e->getMessage()])
+                ->setStatusCode(JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
+        }
     }
 }

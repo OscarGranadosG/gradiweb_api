@@ -15,6 +15,7 @@ class Owner extends Model
 
     protected $fillable = [
         'name',
+        'identification_card',
         'email',
         'phone'
     ];
@@ -26,10 +27,16 @@ class Owner extends Model
     }
 
     public static function saveDataOwner($data)
-    {
-        
+    {    
         return Owner::create($data);
     }
+
+    public static function getDataOwner()
+    {
+        return Owner::select('id', 'name', 'identification_card', 'email', 'phone');   
+    }
+
+
 
     
 }

@@ -27,4 +27,9 @@ class Brand extends Model
     {
         return Brand::create($data);
     }
+
+    public static function getDataBrand()
+    {
+        return Brand::select('id', 'name');   
+    }
 }

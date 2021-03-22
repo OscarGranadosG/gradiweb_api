@@ -18,10 +18,16 @@ class OwnerDataManagement
     {
         $data = [
             'name' => $this->data['name'],
+            'identification_card' => $this->data['identification_card'],
             'email' => $this->data['email'],
             'phone' => $this->data['phone']
         ];
 
         return Owner::saveDataOwner($data);
+    }
+
+    public function getDataOwners()
+    {
+        return Owner::getDataOwner()->get()->toArray();
     }
 }

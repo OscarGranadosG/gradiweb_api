@@ -26,4 +26,14 @@ class CarDataManagement
 
         return Car::saveDataCar($data);
     }
+
+    public function getCarsBrand()
+    {
+        return Car::getCarsByBrand()->get()->toArray();    
+    }
+
+    public function getAllInformation()
+    {
+        return Car::getAllData()->get()->toArray();
+    }
 }

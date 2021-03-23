@@ -29,3 +29,8 @@ Route::get('getBrands', [BrandController::class, 'getBrands']);
 
 Route::post('car', [CarController::class, 'saveCar']);
 
+//cantidad de vehiculos por marca
+Route::get('carsByBrand', [CarController::class, 'getCarByBrands']);
+
+Route::get('allData', [CarController::class, 'getAllData']);
+

@@ -31,4 +31,32 @@ class CarController extends Controller
                 ->setStatusCode(JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
         }
     }
+
+    public function getCarByBrands()
+    {
+        try {
+            return response()
+                ->json(['status' => 'Success',
+                    'results' => $this->management->getCarsBrand()])
+                ->setStatusCode(JsonResponse::HTTP_OK);
+        } catch (\Exception $e) {
+            return response()
+                ->json(['error' => $e->getMessage()])
+                ->setStatusCode(JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    public function getAllData()
+    {
+        try {
+            return response()
+                ->json(['status' => 'Success',
+                    'results' => $this->management->getAllInformation()]);
+        } catch (\Exception $e) {
+            return response()
+                ->json(['error' => $e->getMessage()])
+                ->setStatusCode(JsonResponse::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+    
 }
